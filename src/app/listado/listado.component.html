@@ -1,12 +1,24 @@
 {{titleListado}}
-<p>
-    <input type="text" [(ngModel)] = 'nuevoTemplate'>
-    <button (click)='addTemplate()'>Añadir</button>
-    {{nuevoTemplate}}
-</p>
+
+<form (ngSubmit)="addTemplate()">
+    <p>
+        <label>Nombre:</label>
+        <input type="text" name="nombreform" #nombree = "ngModel" [(ngModel)]="nombre" required>
+        <span *ngIf="!nombree.valid" style="color:red">*</span>
+    </p>
+    <p>
+        <label>Contenido:</label>
+        <input type="text" name="contenidoform" #contenidoo = "ngModel" [(ngModel)]="contenido" required>
+        <span *ngIf="!contenidoo.valid" style="color:red">*</span>
+    </p>
+    <input type="submit" value="Guardar">
+</form>
+
 <ul>
     <li *ngFor = 'let template of listadoTemplates; let i = index'>
-    {{template}}
-    <button (click) = 'deleteTemplate(i)'>Eliminar</button>
+        {{template.nombre_template}}
+        -
+        {{template.contenido}}
+        <button (click) = 'deleteTemplate(i)'>Eliminar</button>
     </li>
 </ul>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
-//import { TemplateService } from '../services/template.service'
 import { AppComponent } from '../app.component'
+import { Template } from './template'
 
 @Component({
     selector:'listado',
@@ -9,15 +9,20 @@ import { AppComponent } from '../app.component'
 
 export class ListadoComponent{
     titleListado = 'Estas son las listas'
-    nuevoTemplate:String
-    listadoTemplates:Array<string>
+    listadoTemplates:Array<Template>
+    nombre:string
+    contenido:string
     constructor(
-        private _component: AppComponent
+        private _component: AppComponent,     
     ){}
 
     addTemplate(){
-        this._component.templateService.addTemplate(this.nuevoTemplate)
+        this._component.templateService.addTemplate(this.nombre,this.contenido)
+        console.log("ListadoComponent_addTemplate()")
         console.log(this._component.templateService.getTemplates())
+        //console.log(this.nombre)
+        //console.log(this.contenido)
+        //console.log(this.listadoTemplates)
     }
 
     deleteTemplate(index){
@@ -30,7 +35,7 @@ export class ListadoComponent{
         console.log(this._component.templateService.getTemplates())
         console.log("ListadoComponent_ngOnInit")
     }
-
+/*
     ngOnDestroy(){
         console.log("ListadoComponent_ngOnDestroy")
     }
@@ -55,4 +60,5 @@ export class ListadoComponent{
     ngAfterViewChecked(){
         console.log("ListadoComponent_ngAfterViewChecked")
     }
+*/
 }
