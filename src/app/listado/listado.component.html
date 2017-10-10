@@ -1,0 +1,12 @@
+{{titleListado}}
+<p>
+    <input type="text" [(ngModel)] = 'nuevoTemplate'>
+    <button (click)='addTemplate()'>Añadir</button>
+    {{nuevoTemplate}}
+</p>
+<ul>
+    <li *ngFor = 'let template of listadoTemplates; let i = index'>
+    {{template}}
+    <button (click) = 'deleteTemplate(i)'>Eliminar</button>
+    </li>
+</ul>
