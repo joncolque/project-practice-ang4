@@ -1,1 +1,6 @@
 {{titleHome}}
+<div>
+    <li *ngFor='let area of areas' class="horizontal">
+        <div [ngClass]="['circulo','unselectable']" (click) = "getProjects()">{{area}}</div>
+    </li>
+</div>
